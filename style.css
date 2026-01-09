@@ -53,29 +53,15 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; }
     margin: 0 auto;
 }
 
-/* --- ANIMAÇÃO DO RABISCO (LOOP) --- */
-.scribble-container { position: relative; display: inline-block; color: var(--accent); }
+/* --- ANIMAÇÃO DO RABISCO (Loop Eterno: Desenha -> Some -> Desenha) --- */
+.scribble-container { 
+    position: relative; 
+    display: inline-block; 
+    color: var(--accent); 
+}
 
 /* Ajuste para o rabisco não colar no texto */
 .section-title .scribble-container { margin-right: 10px; }
-
-.scribble-svg {
-    position: absolute; top: -10%; left: -5%; width: 110%; height: 120%;
-    fill: none; stroke: #333; stroke-width: 2; stroke-linecap: round;
-    stroke-dasharray: 500; stroke-dashoffset: 500;
-}
-
-.animate-scribble { animation: drawLoop 4s ease-in-out infinite; }
-
-@keyframes drawLoop {
-    0% { stroke-dashoffset: 500; }
-    30% { stroke-dashoffset: 0; }
-    80% { stroke-dashoffset: 0; opacity: 1; }
-    100% { stroke-dashoffset: 500; opacity: 0; }
-}
-
-/* --- RABISCOS ESTÁTICOS (SEM ANIMAÇÃO) --- */
-.scribble-container { position: relative; display: inline-block; color: var(--accent); }
 
 .scribble-svg {
     position: absolute; 
@@ -87,16 +73,37 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; }
     stroke: #333; 
     stroke-width: 2; 
     stroke-linecap: round;
-    /* Removemos o dasharray/offset para o traço ficar sólido e visível sempre */
-    stroke-dasharray: 0; 
-    stroke-dashoffset: 0;
-    opacity: 1;
+    
+    /* Configuração do traço */
+    stroke-dasharray: 1000; 
+    stroke-dashoffset: 1000; /* Começa "escondido" */
+    
+    /* A MÁGICA DO LOOP: "infinite" faz nunca parar */
+    animation: drawLoop 4s ease-in-out infinite;
 }
 
-/* Ajuste específico para os rabiscos coloridos */
+/* Cores específicas */
 .about-section .scribble-svg { stroke: var(--brown-dark); }
 .footer-cta .scribble-svg { stroke: var(--bg-light); }
 
+/* --- COMO FUNCIONA O LOOP --- */
+@keyframes drawLoop {
+    0% {
+        stroke-dashoffset: 1000; /* O traço está escondido (fora da tela) */
+        opacity: 1;
+    }
+    40% {
+        stroke-dashoffset: 0;    /* O traço termina de desenhar completo */
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;              /* Ele fica parado visível um tempinho */
+    }
+    100% {
+        stroke-dashoffset: 0;    /* Continua desenhado... */
+        opacity: 0;              /* ...mas desaparece suavemente (transparente) */
+    }
+}
 /* --- GALERIA MOODBOARD (LAYOUT 5 IMAGENS) --- */
 .gallery-section { 
     background: var(--brown-dark); 
