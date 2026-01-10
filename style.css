@@ -181,10 +181,31 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; }
 .footer-cta .scribble-svg { stroke: var(--bg-light); }
 
 .social-invitation { font-size: 16px; margin-top: 15px; opacity: 0.9; font-weight: 300; }
-.social-icons { margin-top: 25px; display: flex; gap: 20px; }
-.social-icons a { text-decoration: none; border: none; outline: none; }
-.social-icons img { width: 45px; height: auto; transition: transform 0.3s; }
-.social-icons img:hover { transform: scale(1.1); }
+/* --- REDES SOCIAIS (CORRIGIDO) --- */
+.social-icons {
+    margin-top: 25px;
+    display: flex;
+    gap: 20px;
+    align-items: center; /* Alinha todos pelo centro verticalmente */
+}
+
+.social-icons a {
+    text-decoration: none;
+    border: none;
+    outline: none;
+    display: flex; /* Remove espaços fantasmas do link */
+}
+
+.social-icons img {
+    width: 45px;        /* Largura fixa */
+    height: 45px;       /* Altura IDÊNTICA à largura (quadrado perfeito) */
+    object-fit: contain; /* O SEGREDO: A imagem se ajusta dentro do quadrado sem distorcer */
+    transition: transform 0.3s;
+}
+
+.social-icons img:hover {
+    transform: scale(1.1);
+}
 
 .footer-info { flex: 1; text-align: right; }
 .footer-info .info-block { display: flex; flex-direction: column; gap: 15px; }
