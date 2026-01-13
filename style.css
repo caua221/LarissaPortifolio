@@ -252,3 +252,34 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; }
     .social-icons { justify-content: center; }
     .footer-bottom { gap: 20px; }
 }
+/* Forçar o título da seção Sobre a ficar em uma linha só */
+#sobre .section-title {
+    white-space: nowrap;
+}
+
+/* Ajuste preventivo para celular (para não cortar o texto se a tela for pequena) */
+@media (max-width: 900px) {
+    #sobre .section-title {
+        white-space: normal; /* No celular pode quebrar linha se precisar */
+        text-align: center;
+    }
+}
+/* --- FORÇAR TÍTULO "SOBRE" EM UMA LINHA (PC E CELULAR) --- */
+
+/* 1. Regra geral: nunca quebrar linha nesta parte */
+#sobre .section-title {
+    white-space: nowrap;
+}
+
+/* 2. Regra específica para Celular: Diminuir a fonte para caber */
+@media (max-width: 480px) {
+    #sobre .section-title {
+        font-size: 24px; /* Tamanho reduzido para caber na tela do celular */
+    }
+    
+    /* Ajuste opcional para o rabisco não ficar torto com a letra menor */
+    #sobre .scribble-svg {
+        top: -5%;
+        height: 140%;
+    }
+}
