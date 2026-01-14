@@ -224,14 +224,44 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; }
 .mini-icon { width: 16px; height: auto; }
 
 /* --- RESPONSIVIDADE (MOBILE) --- */
+/* --- RESPONSIVIDADE (MOBILE) --- */
 @media (max-width: 900px) {
     
     /* Ajustes do Menu no Celular */
     .nav-links { gap: 15px; }
     .nav-links a { font-size: 13px; }
 
+    /* Ajuste do Título Principal */
     .title { font-size: 38px; }
-    .hero { padding: 80px 5%; min-height: auto; }
+
+    /* --- AQUI ESTÁ A CORREÇÃO DO ESPAÇO --- */
+    
+    /* Na seção Hero (texto inicial), diminuímos o espaço de baixo */
+    .hero { 
+        padding: 80px 5% 10px 5%; /* Topo 80, Lados 5, Baixo 10 (era 60) */
+        min-height: auto; 
+    }
+
+    /* Na seção Sobre (foto), diminuímos drasticamente o espaço de cima */
+    .about-section { 
+        padding: 10px 5% 60px 5%; /* Topo 10 (era 120!), Lados 5, Baixo 60 */
+        flex-direction: column; /* Garante que fique um embaixo do outro */
+        gap: 30px; /* Espaço pequeno entre a foto e o título "Sobre" */
+    }
+
+    /* Ajuste para o texto "Sobre Larissa Teófilo" caber na tela */
+    #sobre .section-title {
+        font-size: 26px; /* Letra menor no celular */
+        white-space: normal; /* Permite quebrar linha se for muito necessário */
+        line-height: 1.2;
+    }
+
+    /* Ajuste do rabisco no título menor */
+    #sobre .scribble-svg {
+        top: -5%;
+        height: 140%;
+    }
+    
     .section-title { font-size: 32px; }
     
     .about-container, 
@@ -239,7 +269,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; }
     .footer-bottom { 
         flex-direction: column; 
         text-align: center; 
-        gap: 40px;
+        gap: 30px;
     }
 
     .help-grid, .areas-grid, .reflections-grid { 
