@@ -111,6 +111,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; }
     align-items: center; 
     background: linear-gradient(to bottom, var(--bg-light), #ffffff);
     padding-top: 80px;
+    padding-bottom: 160px; /* <-- A MÁGICA AQUI: cria espaço de sobra pro bloco laranja subir! */
 }
 
 .hero-container { 
@@ -163,15 +164,21 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; }
 .hero-image-wrapper {
     flex: 1;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center; /* Centraliza a foto no espaço dela */
+    align-items: center;
     position: relative; 
     z-index: 2;         
 }
 
 .hero-image {
-    max-width: 100%;
-    height: auto;
+    max-width: 420px;
+    width: 70%;
+    /* Tirei o height: 20% para não distorcer o seu rosto */
+    border-radius: 40px; 
     filter: drop-shadow(-10px 10px 20px rgba(0,0,0,0.15));
+    
+    /* A MÁGICA PARA MOVER PARA CIMA OU PARA BAIXO: */
+    margin-top: -20px; /* VALOR NEGATIVO sobe a imagem. VALOR POSITIVO (ex: 30px) desce a imagem. */
 }
 
 /* --- ABORDAGEM --- */
@@ -614,6 +621,11 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; }
     .hero-content { align-items: center; }
     .title { font-size: 38px; }
     .logo { position: static; margin-bottom: 20px; }
+    
+    /* Ajuste para a foto no celular também ficar bonita e redonda */
+    .hero-image {
+        max-width: 80%; /* No celular fica um pouquinho menor em relação à tela */
+    }
 
     /* Abordagem */
     .approach-section {
@@ -657,6 +669,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; }
     .footer-bottom-content { flex-direction: column; text-align: center; gap: 20px; }
     .footer-bottom-item { justify-content: center; }
 }
+
 /* --- RISCO FEITO COM CSS SOB O TEXTO --- */
 .risco-destaque {
     position: relative;
@@ -689,5 +702,10 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; }
     .risco-destaque::after {
         bottom: -8px;
         height: 30px;
+    }
+    /* Hero (dentro do @media) */
+    .hero { 
+        padding: 80px 5% 140px 5%; /* O 140px aqui garante o espaço no celular */
+        min-height: auto; 
     }
 }
