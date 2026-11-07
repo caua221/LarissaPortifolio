@@ -15,22 +15,6 @@
       gtag('config', 'AW-18531294062');
     </script>
 
-    <!-- Função auxiliar para disparar a conversão do Google Ads -->
-    <script>
-      function gtag_report_conversion(url) {
-        var callback = function () {
-          if (typeof(url) != 'undefined') {
-            window.location = url;
-          }
-        };
-        gtag('event', 'conversion', {
-            'send_to': 'AW-18531294062/LJZBCPuUlaYdEO62tIRF',
-            'event_callback': callback
-        });
-        return false;
-      }
-    </script>
-
     <link rel="icon" href="m.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -70,8 +54,7 @@
                 <p class="description">
                     Psicoterapia online para jovens, adultos e comunidade LGBTQIAPN+. Aqui você encontra um espaço de escuta, acolhimento e cuidado para entender sua história com mais clareza, em um ambiente seguro e respeitoso.
                 </p>
-                <!-- Botão configurado para ir ao WhatsApp disparando a conversão -->
-                <a href="https://wa.me/5511987997899" target="_blank" onclick="return gtag_report_conversion('https://wa.me/5511987997899');" class="btn-primary" style="margin-top: -55px; position: relative; z-index: 10;">Agendar atendimento</a>
+                <a href="#contato" class="btn-primary" onclick="gtag('event', 'conversion', {'send_to': 'AW-18531294062/LJZBCPuUlaYdEO62tIRF'});" style="margin-top: -55px; position: relative; z-index: 10;">Agendar atendimento</a>
             </div>
 
             <div class="hero-image-wrapper">
@@ -205,8 +188,8 @@
                         </div>
                         <div class="contact-text">
                             <span class="contact-label">WhatsApp</span>
-                            <!-- Evento de conversão adicionado no clique do WhatsApp -->
-                            <a href="https://wa.me/5511987997899" target="_blank" onclick="return gtag_report_conversion('https://wa.me/5511987997899');" class="contact-value">(11) 98799-7899</a>
+                            <!-- Evento de conversão direto no clique do WhatsApp -->
+                            <a href="https://wa.me/5511987997899?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta!" target="_blank" onclick="gtag('event', 'conversion', {'send_to': 'AW-18531294062/LJZBCPuUlaYdEO62tIRF'});" class="contact-value">(11) 98799-7899</a>
                         </div>
                     </div>
 
